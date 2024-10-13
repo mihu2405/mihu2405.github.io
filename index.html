@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FEFBF5;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui;
+        }
+
+        .dark-mode {
+            background-color: rgb(16, 16, 16);
+            color: white;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav {
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            background-color: #fefbf52c;
+            backdrop-filter: blur(10px);
+            z-index: 2;
+            border-bottom: 1px solid #e6e1d7;
+        }
+
+        .dark-mode nav{
+            background-color: rgba(16, 16, 16, 0.37);
+            border-bottom: 1px solid #272624;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: baseline;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            max-width: 800px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: rgb(26, 26, 26);
+            margin: 0 15px;
+        }
+
+        .dark-mode nav ul li a{
+            color: rgb(216, 216, 216);
+        }
+
+        nav ul li h3 {
+            font-size: 25px;
+            font-weight: 400;
+            margin: 0 15px 0 0;
+        }
+
+        .button-1 {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 70px;
+            border: #c2c0b8 1px solid;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .dark-mode .button-1{
+            color: white;
+        }
+
+        .button-1:hover {
+            background-color: #eae3d584;
+        }
+
+        .whiteBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 70px;
+            background: #FEFBF5;
+            border: none;
+            cursor: pointer;
+            color: #000000;
+        }
+
+
+
+        .button-2 {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 70px;
+            background: black;
+            border: none;
+            cursor: pointer;
+            color: #FEFBF5;
+        }
+
+        grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 1000px;
+            margin: 50px auto;
+        }
+
+        grid div {
+            margin: 5px;
+        }
+
+        .profile-pic {
+            aspect-ratio: 1;
+            width: 200px;
+            background-color: aqua;
+            border-radius: 30px;
+            background-image: url(https://i.pinimg.com/736x/bf/fa/e8/bffae84bc9f6942c495c8baf7a435fb6.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .header-txt {
+            font-size: 50px;
+            font-weight: 300;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .profile-details {
+            height: min-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        .profile-details p {
+            font-size: 20px
+        }
+
+        .header-txt1 {
+            font-size: 40px;
+            font-weight: 300;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .header-txt2 {
+            font-size: 25px;
+            font-weight: 300;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .button-grp-mrgin {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: 1fr 1fr;
+            height: 45px;
+            max-width: 350px;
+        }
+
+        .section {
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.173);
+            margin-right: 10px;
+        }
+
+        .sub-social a {
+            color: black;
+            text-decoration: none;
+            margin: 0px 30px 0 0;
+        }
+
+        .dark-mode .sub-social a{
+            color: rgb(195, 195, 195);
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .skill-sec {
+            background-color: #efeae0;
+            padding: 2px 15px;
+            border-radius: 10px;
+            display: flex;
+            width: max-content;
+        }
+
+
+        .dark-mode .skill-sec{
+            background-color: #2a2a2a;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 100px;
+            border: 1px solid #e6e1d7;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .dark-mode .card{
+            background-color: #000000;
+            border: 1px solid #403f3c;
+        }
+
+        .card img {
+            border-radius: 50%;
+            height: 30px;
+            padding: 15px;
+            background-color: #f8f3e9;
+        }
+
+        .dark-mode .card img {
+            filter: invert(1);
+        }
+
+        .duration {
+            color: #6d6b65;
+            width: 85%;
+            font-size: 14px;
+        }
+
+        .job-role {
+            width: 100%;
+            line-height: 1.5;
+            margin: 0 10px;
+        }
+
+        .repo {
+            border: 1px solid #c2c0b8;
+            border-radius: 20px;
+            background-color: white;
+        }
+
+        .dark-mode .repo{
+            border: 1px solid #484743;
+            background-color: rgb(0, 0, 0);
+        }
+
+        .repo h3 {
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        .repo img {
+            width: 100%;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .dark-mode .repo img{
+            filter: invert(1);
+        }
+
+        .repo p {
+            padding: 0 10px;
+        }
+
+        .repo h3 a {
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: black;
+            padding: 30px;
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+            border-radius: 500px;
+            color: #FEFBF5;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .theme-switch{
+            background-color: transparent;
+            background-image: url(https://www.svgrepo.com/show/445683/dark-mode.svg);
+            border: none;
+            outline: none;
+            aspect-ratio: 1;
+            width: 35px;
+            background-size: cover;
+            filter: invert(0.2);
+            margin: 0 5px;
+        }
+
+        .dark-mode .theme-switch{
+            filter: invert(0.8);
+        }
+
+        .dark-mode .form-for-contact{
+            filter: invert(0.94);
+        }
+        @media (max-width: 770px) {
+            nav ul li a {
+                display: none;
+            }
+
+            grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                max-width: 1000px;
+                margin: 50px auto;
+            }
+
+            .profile-details {
+                height: min-content;
+                position: relative;
+                top: 0;
+                display: flex;
+                align-items: center;
+            }
+
+            .profile-details h1 {
+                margin: 0;
+                font-size: 40px;
+            }
+
+            #githubprojects {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            footer {
+                border-radius: 0;
+                margin: 0 auto 0 auto;
+                flex-direction: column;
+                align-items: baseline;
+            }
+
+
+            .profile-foot {
+                display: block;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 536px) {
+
+            .profile-details {
+                display: inline;
+            }
+
+
+            #githubprojects {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .profile-foot {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav">
+            <ul>
+                <li>
+                    <h3>Mihir.</h3>
+                </li>
+                <li><a href="">Skills</a></li>
+                <li><a href="">Experience</a></li>
+                <li><a href="">Projects</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+            <div style="display: flex; align-items: center;">
+                <button class="theme-switch" onclick="myFunction()"></button>
+                <button class="button-1">See my work</button>
+            </div>
+        </div>
+    </nav>
+    <grid>
+        <div class="profile-details">
+            <div class="profile-pic"></div>
+            <div>
+                <h1 class="header-txt">I'm Mihir Srivastava</h1>
+                <p>I'm a Software Devloper from India</p>
+                <div class="sub-social">
+                    <a class="social" href="https://github.com/mihu2405">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512"
+                            height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+                            </path>
+                        </svg>
+                        GitHub
+                        <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="16"
+                            width="16" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                    <a class="social" href="https://www.linkedin.com/in/mihir-srivastava-78795b2b0/">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512"
+                            height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z">
+                            </path>
+                        </svg>
+                        Linkedin
+                        <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="16"
+                            width="16" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="sub-social">
+                    <a class="social" href="">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512"
+                            height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
+                            </path>
+                        </svg>
+                        Twitter
+                        <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="16"
+                            width="16" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                    <a class="social" href="jatin-profile.pdf">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512"
+                            height="18" width="18" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm160-14.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z">
+                            </path>
+                        </svg>
+                        Resume
+                        <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="16"
+                            width="16" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <main>
+            <div class="section">
+                <h1 class="header-txt1">Passionate creating great Software experiences</h1>
+                <div class="button-grp-mrgin">
+                    <button class="button-2">Talk with me</button>
+                    <button class="button-1">See my Work</button>
+                </div>
+            </div>
+            <div class="section">
+                <h1 class="header-txt2">Skills</h1>
+                <div class="skills">
+                    <div class="skill-sec">
+                        PyTorch</div>
+                    <div class="skill-sec">
+                        TensorFlow</div>
+                    <div class="skill-sec">
+                        Python</div>
+                    <div class="skill-sec">
+                        Deep Neural Networks</div>
+                    <div class="skill-sec">
+                        MATLAB</div>
+                </div>
+            </div>
+            <div class="section">
+                <h1 class="header-txt2">Experience</h1>
+                <div class="card">
+                    <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="">
+                    <div class="job-role">
+                        Data Science Intern,<br><b>India</b>
+                    </div>
+                    <div class="duration">Feb 2024 - Aug 2024</div>
+                </div>
+                <div class="card">
+                    <img src="https://www.svgrepo.com/show/353780/github-icon.svg" alt="">
+                    <div class="job-role">
+                        System architect, <br><b>India</b>
+                    </div>
+                    <div class="duration">Mar 2023 - Feb 2024</div>
+                </div>
+            </div>
+            <div class="section">
+                <h1 class="header-txt2">Projects</h1>
+                <div id="githubprojects"></div>
+            </div>
+            <h1 class="header-txt2">Contact</h1>
+            <div class="form-for-contact" style="overflow-y: hidden; border-radius: 30px;">
+                <div style="margin-bottom: -100px; overflow-y: hidden; border-radius: 30px;" data-aidaform-app="form202405"
+                    data-url="https://blubranch.aidaform.com/doc" data-width="100%" data-height="500px" data-do-resize>
+                </div>
+                <script>(function () { var r, d = document, gt = d.getElementById, cr = d.createElement, tg = d.getElementsByTagName, id = "aidaform-app"; if (!gt.call(d, id)) { r = cr.call(d, "script"); r.id = id; r.src = "https://widget.aidaform.com/embed.js"; (d.head || tg.call(d, "head")[0]).appendChild(r); } })()</script>
+            </div>
+        </main>
+    </grid>
+    <footer>
+        <div class="profile-foot">
+            <div class="profile-pic" style="width: 120px; border-radius: 50%;"></div>
+            <div style="margin: 0 10px;">
+                <h1 class="header-txt1">I'm Mihir Shrivastava</h1>
+                <p>I'm a Software Devloper from India</p>
+            </div>
+        </div>
+        <button class="whiteBtn" style="margin-right: 40px;">Talk with me</button>
+    </footer>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        const githubUsername = 'mihu2405';
+        const githubProjectsContainer = document.getElementById('githubprojects');
+
+        try {
+            const response = await fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=3`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch GitHub projects');
+            }
+            const repositories = await response.json();
+
+            repositories.forEach((repo) => {
+                const repoElement = document.createElement('div');
+                repoElement.classList.add('repo');
+
+                const repoImageUrl = `https://opengraph.githubassets.com/2bda954ec90e1693759a9e873e0a9077debe9f55208c09737fd9d2a0340c11dd/${githubUsername}/${repo.name}`;
+
+                repoElement.innerHTML = `
+            <a href="${repo.html_url}" target="_blank"><img src="${repoImageUrl}" alt="${repo.name}" class="repo-image"></a>
+            <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+            <p>${repo.description || 'No description available'}</p>
+          `;
+
+                githubProjectsContainer.appendChild(repoElement);
+            });
+        } catch (error) {
+            githubProjectsContainer.innerHTML = `<p>Error: ${error.message}</p>`;
+        }
+    });
+</script>
+
+</html>
