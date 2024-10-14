@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>👋 I'm Mihir</title>
-    <link rel="stylesheet" href="https://jatin0jha.github.io/jatin0jha/mihuporfolio.css">
     <script>
         function myFunction() {
             var element = document.body;
@@ -142,6 +141,7 @@
             width: 200px;
             background-color: rgb(0, 0, 0);
             border-radius: 30px;
+            background-image: url(https://avatars.githubusercontent.com/u/123337338?v=4);
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -404,7 +404,7 @@
     </nav>
     <grid>
         <div class="profile-details">
-            <div class="profile-pic" style="background-image: url(https://i.pinimg.com/736x/bf/fa/e8/bffae84bc9f6942c495c8baf7a435fb6.jpg);"></div>
+            <div class="profile-pic"></div>
             <div>
                 <h1 class="header-txt">I'm Mihir Srivastava</h1>
                 <p>I'm a Software Devloper from India</p>
@@ -521,52 +521,54 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', async () => {
-        const githubUsername = 'mihu2405';
-        const githubProjectsContainer = document.getElementById('githubprojects');
-        const profilePicDiv = document.querySelector('.profile-pic');
-
-        try {
-            // Fetch GitHub user data (including avatar URL)
-            const userResponse = await fetch(`https://api.github.com/users/${githubUsername}`);
-            if (!userResponse.ok) {
-                throw new Error('Failed to fetch GitHub user data');
-            }
-            const userData = await userResponse.json();
-            const avatarUrl = userData.avatar_url;
-
-            // Set the profile picture as background-image
-            profilePicDiv.style.backgroundImage = `url(${avatarUrl})`;
-
-            // Fetch GitHub repositories
-            const repoResponse = await fetch(`https://api.github.com/users/${githubUsername}/repos?per_page=100`);
-            if (!repoResponse.ok) {
-                throw new Error('Failed to fetch GitHub projects');
-            }
-            let repositories = await repoResponse.json();
-
-            // Sort repositories by stargazers_count in descending order
-            repositories.sort((a, b) => b.stargazers_count - a.stargazers_count);
-
-            // Take top 3 popular repositories
-            repositories.slice(0, 3).forEach((repo) => {
-                const repoElement = document.createElement('div');
-                repoElement.classList.add('repo');
-
-                const repoImageUrl = `https://opengraph.githubassets.com/2bda954ec90e1693759a9e873e0a9077debe9f55208c09737fd9d2a0340c11dd/${githubUsername}/${repo.name}`;
-
-                repoElement.innerHTML = `
-                    <a href="${repo.html_url}" target="_blank"><img src="${repoImageUrl}" alt="${repo.name}" class="repo-image"></a>
-                    <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
-                    <p>${repo.description || 'No description available'}</p>
-                `;
-
-                githubProjectsContainer.appendChild(repoElement);
-            });
-        } catch (error) {
-            githubProjectsContainer.innerHTML = `<p>Error: ${error.message}</p>`;
+      const githubUsername = 'mihu2405';
+      const profilePicDiv = document.querySelector('.profile-pic');
+      const githubProjectsContainer = document.getElementById('githubprojects');
+  
+      try {
+        // Fetch GitHub user data to get the profile picture URL
+        const userResponse = await fetch(`https://api.github.com/users/${githubUsername}`);
+        if (!userResponse.ok) {
+          throw new Error('Failed to fetch GitHub profile');
         }
+        const userData = await userResponse.json();
+        const profilePicUrl = userData.avatar_url;
+  
+        // Set the profile picture as background image
+        profilePicDiv.style.backgroundImage = `url(${profilePicUrl})`;
+  
+        // Fetch repositories
+        const repoResponse = await fetch(`https://api.github.com/users/${githubUsername}/repos?per_page=100`);
+        if (!repoResponse.ok) {
+          throw new Error('Failed to fetch GitHub projects');
+        }
+        let repositories = await repoResponse.json();
+  
+        // Sort repositories by stargazers_count in descending order
+        repositories.sort((a, b) => b.stargazers_count - a.stargazers_count);
+  
+        // Take top 3 popular repositories
+        repositories.slice(0, 3).forEach((repo) => {
+          const repoElement = document.createElement('div');
+          repoElement.classList.add('repo');
+  
+          const repoImageUrl = `https://opengraph.githubassets.com/2bda954ec90e1693759a9e873e0a9077debe9f55208c09737fd9d2a0340c11dd/${githubUsername}/${repo.name}`;
+  
+          repoElement.innerHTML = `
+            <a href="${repo.html_url}" target="_blank">
+              <img src="${repoImageUrl}" alt="${repo.name}" class="repo-image">
+            </a>
+            <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+            <p>${repo.description || 'No description available'}</p>
+          `;
+  
+          githubProjectsContainer.appendChild(repoElement);
+        });
+      } catch (error) {
+        githubProjectsContainer.innerHTML = `<p>Error: ${error.message}</p>`;
+      }
     });
-</script>
+  </script>
 
 
 </html>
